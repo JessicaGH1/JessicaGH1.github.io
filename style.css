@@ -1,0 +1,73 @@
+body {
+    background: rgb(0, 70, 113);
+    color: rgb(64, 107, 156);
+    padding: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+#all-contents {
+  max-width: 800px;
+    margin: auto;
+}
+
+/* navigation menu */
+nav {
+    background: rgb(161, 206, 244);
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: flex;
+    padding: 10px;
+}
+h1 {
+    display: flex;
+    align-items: center;
+    color: rgb(0, 119, 204);
+    flex: 1;
+    margin: 0;
+}
+#nav-ul {
+    list-style-image: none;
+}
+.nav-li {
+    display: inline-block;
+    padding: 0 10px;
+}
+a {
+    text-decoration:none;
+    color: #0964c6;
+    font-size: 20px;
+}
+
+/* main container area beneath menu */
+main {
+    background: rgb(222, 221, 220);
+    display: flex;
+    border-radius: 15px;
+}
+.sidebar {
+    padding: 10px;
+}
+.sidebar-img {
+    width: 300px;
+    border-radius: 15px;
+    border-style:solid;
+    border-width: 5px;
+   
+}
+.content {
+    flex: 1;
+    padding: 15px;
+    font-size: 17px;
+}
+
+/* portfolio styles */
+#interests {
+    padding: 10px;
+    font-size: 17px;
+    border-style:dashed;
+    border-width: 3px;
+}
+h2, h3 {
+    margin: 0px;
+}
