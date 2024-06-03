@@ -18,6 +18,10 @@ nav {
     margin-bottom: 20px;
     display: flex;
     padding: 10px;
+    /* bg change later*/
+    background-image: url(https://i.pinimg.com/originals/f6/dd/cb/f6ddcb8ed1db93ebee4cf31eed00095e.png);
+    background-position: center;
+    background-repeat: no-repeat, repeat;
 }
 h1 {
     display: flex;
@@ -71,3 +75,44 @@ main {
 h2, h3 {
     margin: 0px;
 }
+
+/* portfolio styles */
+.content h1 {
+    color:  blue;
+}
+
+#portfolio {
+    list-style-type: none;   
+    padding-left: 0px;
+}
+
+#portfolio li {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align:center;
+}
+
+#portfolio li:hover {
+    background: #eee;
+}
+
+#portfolio a {
+    text-decoration: none;
+    color: #02356b;
+    
+}
+
+.name {
+    color: rgb(0, 119, 204);
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse; 
+  }
+  
+  @keyframes example {
+    from {color: rgb(0, 119, 204);}
+    to {color: rgb(111, 166, 255);}
+  }
