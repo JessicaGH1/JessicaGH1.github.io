@@ -28,12 +28,12 @@ $(function () {
      * Comment the lines out to remove the grid
      */
 
-    // for (let i = 100; i < canvas.width; i += 100) {
-    //   createPlatform(i, canvas.height, -1, -canvas.height);
-    // }
-    // for (let i = 100; i < canvas.height; i += 100) {
-    //   createPlatform(canvas.width, i, -canvas.width, -1);
-    // }
+     for (let i = 100; i < canvas.width; i += 100) {
+       createPlatform(i, canvas.height, -1, -canvas.height);
+     }
+     for (let i = 100; i < canvas.height; i += 100) {
+       createPlatform(canvas.width, i, -canvas.width, -1);
+     }
 
     /////////////////////////////////////////////////
     //////////ONLY CHANGE BELOW THIS POINT///////////
@@ -44,7 +44,23 @@ $(function () {
     // You must decide the x position, y position, width, and height of the platforms
     // example usage: createPlatform(x,y,width,height)
 
+    //my plan is to make a maze inside a cloud and the player has to compleye
+    //the maze while collecting collectables and dodging cannons
 
+    createPlatform(100,650,100,20);
+    createPlatform(200,650,1000,20);
+    createPlatform(1200,650,100,20);
+    createPlatform(1300,650,20,-100);
+    createPlatform(1200,525,100,20);
+    createPlatform(1200,525,20,-100);
+    createPlatform(1100,425,100,20);
+    createPlatform(1100,425,20,-100);
+    createPlatform(1000,325,100,20);
+    createPlatform(1000,325,20,-100);
+    createPlatform(900,225,100,20);
+    createPlatform(900,225,20,-100);
+    createPlatform(800,125,500,20);
+     
 
     
     // TODO 2
@@ -53,6 +69,7 @@ $(function () {
     // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
+    createCollectable("database",500,300,20,0.5);
 
 
 
@@ -61,6 +78,12 @@ $(function () {
     // You must decide the wall you want the cannon on, the position on the wall, and the time between shots in milliseconds
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
+
+    createCannon("top",600,1000);
+    createCannon("top",800,1000);
+    createCannon("top",1000,1000);
+    createCannon("right",600,1000);
+    // i'll organize these as i create the maze to make sure it's playable
 
 
 
