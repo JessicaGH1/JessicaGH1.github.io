@@ -47,20 +47,37 @@ $(function () {
     //my plan is to make a maze inside a cloud and the player has to compleye
     //the maze while collecting collectables and dodging cannons
 
-    createPlatform(100,650,100,20);
-    createPlatform(200,650,1000,20);
-    createPlatform(1200,650,100,20);
-    createPlatform(1300,650,20,-100);
+    // i just need to fix porpotions and put the maze down 
+
+    createPlatform(80,625,1220,20);
+
     createPlatform(1200,525,100,20);
-    createPlatform(1200,525,20,-100);
+    createPlatform(1200,525,20,-150);
     createPlatform(1100,425,100,20);
-    createPlatform(1100,425,20,-100);
+    createPlatform(1100,425,20,-150);
     createPlatform(1000,325,100,20);
-    createPlatform(1000,325,20,-100);
+    createPlatform(1000,325,20,-150);
     createPlatform(900,225,100,20);
-    createPlatform(900,225,20,-100);
-    createPlatform(800,125,500,20);
-     
+    createPlatform(900,225,20,-150);
+
+    //createPlatform(500,125,400,20);
+    
+
+    createPlatform(500,125,-20,150);
+    //createPlatform(400,225,100,20); sub
+
+    createPlatform(400,225,-20,150);
+    createPlatform(300,325,100,20);
+    createPlatform(300,325,-20,150);
+    createPlatform(200,425,100,20);
+    createPlatform(200,425,-20,150);
+    createPlatform(100,525,100,20);
+    createPlatform(100,525,-20,150);
+
+
+    createPlatform(50,225,350,20);
+
+    
 
     
     // TODO 2
@@ -79,10 +96,11 @@ $(function () {
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
 
-    createCannon("top",600,1000);
-    createCannon("top",800,1000);
-    createCannon("top",1000,1000);
-    createCannon("right",600,1000);
+   // createCannon("top",600,1000);
+   // createCannon("top",800,1000);
+   // createCannon("top",1000,1000);
+   // createCannon("right",600,1000);
+
     // i'll organize these as i create the maze to make sure it's playable
 
 
