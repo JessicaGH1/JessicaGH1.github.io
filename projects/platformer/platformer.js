@@ -28,12 +28,12 @@ $(function () {
      * Comment the lines out to remove the grid
      */
 
-     for (let i = 100; i < canvas.width; i += 100) {
-       createPlatform(i, canvas.height, -1, -canvas.height);
-     }
-     for (let i = 100; i < canvas.height; i += 100) {
-       createPlatform(canvas.width, i, -canvas.width, -1);
-     }
+    // for (let i = 100; i < canvas.width; i += 100) {
+    //   createPlatform(i, canvas.height, -1, -canvas.height);
+    // }
+    // for (let i = 100; i < canvas.height; i += 100) {
+    //   createPlatform(canvas.width, i, -canvas.width, -1);
+    // }
 
     /////////////////////////////////////////////////
     //////////ONLY CHANGE BELOW THIS POINT///////////
@@ -47,47 +47,57 @@ $(function () {
     //my plan is to make a maze inside a cloud and the player has to compleye
     //the maze while collecting collectables and dodging cannons
 
-    // i just need to fix porpotions and put the maze down 
+    // cloud outline
+    createPlatform(200,700,1000,20); // bottom
+    createPlatform(200,600,-20,100); // up
+    createPlatform(200,600,100,-20); // side
+    createPlatform(300,500,-20,100);
+    createPlatform(300,500,100,-20);
+    createPlatform(400,400,-20,100);
+    createPlatform(400,400,100,-20);
+    createPlatform(500,300,-20,100);
+    createPlatform(50,300,450,20); // start
+    createPlatform(600,200,200,-20); // top
+    createPlatform(800,200,20,100); // down
+    createPlatform(800,300,100,-20); // side
+    createPlatform(900,300,20,100);
+    createPlatform(900,400,100,-20);
+    createPlatform(1000,400,20,100);
+    createPlatform(1000,500,100,-20);
+    createPlatform(1100,500,20,100);
+    createPlatform(1100,600,100,-20); // exit
 
-    createPlatform(80,625,1220,20);
-
-    createPlatform(1200,525,100,20);
-    createPlatform(1200,525,20,-150);
-    createPlatform(1100,425,100,20);
-    createPlatform(1100,425,20,-150);
-    createPlatform(1000,325,100,20);
-    createPlatform(1000,325,20,-150);
-    createPlatform(900,225,100,20);
-    createPlatform(900,225,20,-150);
-
-    //createPlatform(500,125,400,20);
-    
-
-    createPlatform(500,125,-20,150);
-    //createPlatform(400,225,100,20); sub
-
-    createPlatform(400,225,-20,150);
-    createPlatform(300,325,100,20);
-    createPlatform(300,325,-20,150);
-    createPlatform(200,425,100,20);
-    createPlatform(200,425,-20,150);
-    createPlatform(100,525,100,20);
-    createPlatform(100,525,-20,150);
+    // maze
+    createPlatform(700,200,10,100);
+    createPlatform(600,400,100,10);
+    createPlatform(600,400,10,100);
+    createPlatform(500,500,100,10);
+    createPlatform(700,400,10,300);
+    createPlatform(400,600,300,10);
+    createPlatform(700,500,100,10);
+    createPlatform(800,400,100,10);
+    createPlatform(1000,500,10,100);
+    createPlatform(900,500,10,100);
+    createPlatform(800,600,200,10);
 
 
-    createPlatform(50,225,350,20);
-
-    
-
-    
-    // TODO 2
+    // TODO 2 
     // Create collectables
     // You must decide on the collectable type, the x position, the y position, the gravity, and the bounce strength
-    // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
+    // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' ('star 'coin') and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
-    createCollectable("database",500,300,20,0.5);
+    // STAR IS FOR PPL WHO WANT AN EXTRA CHALLENGE!!! IT'S POSSIBLE THO
 
+    createCollectable("coin",425,430,0); 
+    createCollectable("star",225,625,0); 
+    createCollectable("star",630,430,0); 
+    createCollectable("star",725,225,0); 
+    createCollectable("coin",825,325,0); 
+    createCollectable("coin",825,525,0); 
+    createCollectable("star",930,525,0); 
+    createCollectable("coin",1030,525,0); 
+    createCollectable("trophy",1225,625,0); 
 
 
     // TODO 3
@@ -96,12 +106,10 @@ $(function () {
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
 
-   // createCannon("top",600,1000);
-   // createCannon("top",800,1000);
-   // createCannon("top",1000,1000);
-   // createCannon("right",600,1000);
-
-    // i'll organize these as i create the maze to make sure it's playable
+    createCannon("top",400,2000,50,50);
+    createCannon("top", 1000,3000,50,50);
+    createCannon("right",300,6000,50,50);
+    createCannon("right",600,3000,50,50);
 
 
 

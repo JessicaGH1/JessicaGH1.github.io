@@ -76,8 +76,8 @@ const cannonHeight = 80;
 let projectiles = [];
 const defaultProjectileWidth = 24;
 const defaultProjectileHeight = defaultProjectileWidth;
-const collectableWidth = 40;
-const collectableHeight = 40;
+const collectableWidth = 50;
+const collectableHeight = 50;
 let collectables = [];
 
 // canvas and context variables; must be initialized later
@@ -97,4 +97,7 @@ var collectableList = {
   kennedi: { image: "images/collectables/kennedi-head.png" },
   max: { image: "images/collectables/max-head.png" },
   steve: { image: "images/collectables/steve-head.png" },
+  star: { image: "https://www.pngkey.com/png/full/56-560618_purple-star-for-starry-clip-art-at-clker.png" },
+  coin: { image: "https://static.vecteezy.com/system/resources/previews/029/283/860/non_2x/gold-coin-gold-coin-sign-gold-coin-clipart-transparent-background-ai-generative-free-png.png"},
+  trophy: { image: "https://static.vecteezy.com/system/resources/previews/022/419/487/non_2x/trophy-isolated-on-a-transparent-background-free-png.png" },
 };
