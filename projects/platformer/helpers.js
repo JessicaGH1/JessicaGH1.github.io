@@ -7,6 +7,8 @@ function registerSetup(setup) {
   setupGame = setup;
 }
 
+var points = 0;
+
 function main() {
   ctx.clearRect(0, 0, 1400, 750); //erase the screen so you can draw everything in it's most current position
 
@@ -14,7 +16,6 @@ function main() {
     deathOfPlayer();
     return;
   }
-
   drawPlatforms();
   drawProjectiles();
   drawCannons();
@@ -368,7 +369,7 @@ function deathOfPlayer() {
   ctx.fillStyle = "lightblue";
   ctx.font = "800% serif";
   ctx.fillText(
-    "You are dead",
+    "  You lost :(",
     canvas.width / 4,
     canvas.height / 6 + canvas.height / 5,
     (canvas.width / 16) * 14
@@ -385,6 +386,9 @@ function deathOfPlayer() {
     window.location.reload();
   }
 }
+
+
+
 
 function playerFrictionAndGravity() {
   //max speed limiter for ground
@@ -507,6 +511,7 @@ function drawCollectables() {
     }
   }
 }
+
 
 function collectablesCollide() {
   for (var i = 0; i < collectables.length; i++) {
