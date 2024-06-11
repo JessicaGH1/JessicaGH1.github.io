@@ -6,19 +6,21 @@
 	<script src="jquery.min.js"></script>
 	<style>
 		.box {
-			width: 70px;
-			height: 70px;
-			background-color: teal;
+			width: 256px;
+			height: 256px;
+			/*background-color: teal;*/
+			background-image: url("https://images.vexels.com/media/users/3/308862/isolated/lists/a56b41baf31af47606557f67ae6e4d79-cute-happy-jellyfish-character.png");
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
-			display: block;
+			display: purple;
 			position: absolute;
 			top: 100px;
-			left: 0px;  /* <--- Change me! */
+			left: 700px;  /* <--- Change me! */
 		}
 		.board{
 			height: 100vh;
+			background-color: rgb(12, 69, 90);
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -48,8 +50,9 @@
 			box.on('click', handleBoxClick);
 
 			// moves the Box to a new position on the screen along the X-Axis
-			function moveBoxTo(newPositionX) {
+			function moveBoxTo(newPositionX, newpositionY) {
 				box.css("left", newPositionX);
+				box.css("top", newPositionY);
 			}
 
 			// changes the text displayed on the Box
@@ -62,7 +65,10 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			
+			var positionX = 0;
+			var positionY = 0;
+			var points = 0;
+			var speed = 10;
 
 			
 			/* 
@@ -71,8 +77,17 @@
 			turn it around! 
 			*/
 			function update() {
+				// Increase positionX by 10 px
+				if (positionX > boardWidth || positionX < 0) {
+					speed = -speed;
+				} 
+				positionX = positionX + speed;
+				positionY = positionY + speed;
+			    moveBoxTo(positionX, positionY);
 				
-
+				//moveBoxTo(positionX)
+				//}
+				
 			};
 
 			/* 
@@ -81,9 +96,10 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				
-
-
+				positionX = 0;
+				points = points + 1;
+				changeBoxText(points);
+				speed = speed + 3;
 			};
 		})();
 	</script>
