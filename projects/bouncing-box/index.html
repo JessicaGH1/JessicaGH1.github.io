@@ -8,19 +8,21 @@
 		.box {
 			width: 256px;
 			height: 256px;
-			/*background-color: teal;*/
+			border-radius: 360px;
+			background-color: rgb(167, 221, 255);
 			background-image: url("https://images.vexels.com/media/users/3/308862/isolated/lists/a56b41baf31af47606557f67ae6e4d79-cute-happy-jellyfish-character.png");
-			font-size: 300%;
+			font-size: 600%;
 			text-align: center;
 			user-select: none;
-			display: purple;
+			display: rgb(0, 0, 0);
 			position: absolute;
 			top: 100px;
 			left: 700px;  /* <--- Change me! */
 		}
 		.board{
 			height: 100vh;
-			background-color: rgb(12, 69, 90);
+			background-color: rgb(98, 141, 160);
+			
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -44,13 +46,16 @@
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 
 			// Every 50 milliseconds, call the update Function (see below)
-			setInterval(update, 50);
+			var interval = setInterval(update, 50);
 			
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
 
+			// Every time the board is clicked, call handleBoardClick function
+			board.on('click',handleBoardClick)
+
 			// moves the Box to a new position on the screen along the X-Axis
-			function moveBoxTo(newPositionX, newpositionY) {
+			function moveBoxTo(newPositionX, newPositionY) {
 				box.css("left", newPositionX);
 				box.css("top", newPositionY);
 			}
@@ -65,12 +70,15 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
+			var boardHeight = jQuery(window).height(); 
 			var positionX = 0;
-			var positionY = 0;
-			var points = 0;
-			var speed = 10;
-
+			var positionY = 100;
+			var points = 0
+			var speedX = 10;
+			var speedY = 10;
+			var clicks = 0;
 			
+
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
@@ -79,15 +87,14 @@
 			function update() {
 				// Increase positionX by 10 px
 				if (positionX > boardWidth || positionX < 0) {
-					speed = -speed;
+					speedX = -speedX; 
 				} 
-				positionX = positionX + speed;
-				positionY = positionY + speed;
-			    moveBoxTo(positionX, positionY);
-				
-				//moveBoxTo(positionX)
-				//}
-				
+				if (positionY > boardHeight || positionY < 0){
+					speedY = -speedY;
+				}
+			    positionX = positionX + speedX;
+			    positionY = positionY + speedY;
+			    moveBoxTo(positionX,positionY);
 			};
 
 			/* 
@@ -96,11 +103,37 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				positionX = 0;
+				var randNumX = Math.random() * boardWidth;
+			    var randNumY = Math.random() * boardHeight;
+				positionX = randNumX;
+				positionY = randNumY;
 				points = points + 1;
 				changeBoxText(points);
-				speed = speed + 3;
+				if (speedX > 0){
+					speedX = speedX + 3;
+				} else {
+					speedX = speedX - 3;
+				}
+				if (speedY > 0){
+					speedY = speedY + 3;
+				} else {
+					speedY = speedY - 3;
+				}
 			};
+
+			/* This function will count the amount of misclicks the player does and will call
+			endGame when there are 10 misclicks*/
+			function handleBoardClick() {
+				clicks = clicks + 1;
+				if (clicks === 10){
+					endGame();
+				}
+			};
+
+			/* This function will end the game after 10 misclicks */
+			function endGame(){
+				clearInterval(interval);
+			}
 		})();
 	</script>
 </body>
