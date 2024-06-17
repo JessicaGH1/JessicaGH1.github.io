@@ -45,6 +45,7 @@ main {
     background: rgb(222, 221, 220);
     display: flex;
     border-radius: 15px;
+    height: 600px;
 }
 .sidebar {
     padding: 10px;
@@ -62,6 +63,7 @@ main {
     font-size: 17px;
 }
 
+
 /* portfolio styles */
 #interests {
     padding: 10px;
@@ -69,8 +71,39 @@ main {
     border-style:dashed;
     border-width: 3px;
 }
-h2, h3 {
+h2, h3{
     margin: 0px;
+}
+
+/* another section I made with more info about me like hobbies and my favorite things*/
+h4{
+    font-size: 25px;
+}
+
+h5, h6 {
+    margin: 0px;
+    font-size: 20px;
+}
+.info {
+    margin-left: -325px;
+}
+
+#hobbies{ 
+    padding: 10px;
+    width: 200px;
+    font-size: 17px;
+    border-style:dashed;
+    border-width: 3px;
+}
+
+#fav{ 
+    margin-top: -163px;
+    margin-left: 530px;
+    padding: 10px;
+    width: 200px;
+    font-size: 17px;
+    border-style:dashed;
+    border-width: 3px;
 }
 
 /* portfolio styles */
@@ -104,12 +137,13 @@ h2, h3 {
 .name {
     color: rgb(0, 119, 204);
     animation-name: example;
-    animation-duration: 4s;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse; 
   }
   
   @keyframes example {
     from {color: rgb(0, 119, 204);}
-    to {color: rgb(111, 166, 255);}
+    to {color: rgb(101, 191, 255);}
   }
+

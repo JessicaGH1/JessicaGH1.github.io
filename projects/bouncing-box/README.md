@@ -941,7 +941,7 @@ In your bash terminal, enter the following commands, pressing ENTER after each o
 
 `git commit -m 'add bouncing box'`
 
-`git push`
+``
 
 Give it a couple minutes and you should be able to view the additions to your website live on the web at `username.github.io` (Where `username` is your own GitHub username.)
 
