@@ -7,8 +7,6 @@ function registerSetup(setup) {
   setupGame = setup;
 }
 
-var points = 0;
-
 function main() {
   ctx.clearRect(0, 0, 1400, 750); //erase the screen so you can draw everything in it's most current position
 
@@ -33,6 +31,7 @@ function main() {
   animate(); //this changes halle's picture to the next frame so it looks animated.
   // debug()                   //debugging values. Comment this out when not debugging.
   drawRobot(); //this actually displays the image of the robot.
+
 }
 
 function getJSON(url, callback) {
@@ -386,9 +385,6 @@ function deathOfPlayer() {
     window.location.reload();
   }
 }
-
-
-
 
 function playerFrictionAndGravity() {
   //max speed limiter for ground
