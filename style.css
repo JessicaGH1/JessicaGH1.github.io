@@ -7,7 +7,7 @@ body {
 }
 #all-contents {
   max-width: 800px;
-    margin: auto;
+  margin: auto;
 }
 
 /* navigation menu */
@@ -107,7 +107,6 @@ h5, h6 {
     border-width: 5px;
 }
 
-
 #fav{ 
     margin-top: -183px;
     margin-left: 530px;
@@ -117,6 +116,7 @@ h5, h6 {
     border-style:dashed;
     border-width: 3px;
 }
+
 
 /* portfolio styles */
 .content h1 {
