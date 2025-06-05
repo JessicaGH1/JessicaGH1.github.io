@@ -44,15 +44,15 @@ $(document).ready(function () {
     shape: "circle",
     repeat: 3
   }
+
   // TODO 2: add a new property to all data shapes
-  for (var feature in dataShapes){
-    var currentShape;
-    currentShape += dataShapes[feature];
-    
-  }
+  
 
   // TODO 3-a: add a function that handles the static display type
-  
+  function handleStatic(data){
+    setBackgroundWithObject(data);
+    animationDetails.displayType = 1;
+  }
 
   // TODO 4-a: add a function that handles the good display type
   
@@ -66,7 +66,7 @@ $(document).ready(function () {
 
   function staticDisplay() {
     // TODO 3-b: call your handleStatic function
-    
+//    handleStatic(current shape object);
   }
 
   function goodDisplay() {
