@@ -34,11 +34,22 @@ $(document).ready(function () {
   // ALL OF YOUR CODE SHOULD GO BELOW HERE ////////
   /////////////////////////////////////////////////
 
-  // TODO 1: create a new shape object and add it to the array
-  
 
+
+  // TODO 0 complete
+
+  // TODO 1: create a new shape object and add it to the array
+  var shape = {
+    color: "blue",
+    shape: "circle",
+    repeat: 3
+  }
   // TODO 2: add a new property to all data shapes
-  
+  for (var feature in dataShapes){
+    var currentShape;
+    currentShape += dataShapes[feature];
+    
+  }
 
   // TODO 3-a: add a function that handles the static display type
   
@@ -74,7 +85,7 @@ $(document).ready(function () {
 
   // This function generates objects for 26 of the necessary 27 entries into the dataShapes array that is used for most of this program
   function generateShapeData() {
-    const data = [];
+    const data = [shape];
     const colors = ["red", "green", "blue"];
     const shapes = ["square", "triangle", "circle"];
     const repeats = [1, 2, 3];
