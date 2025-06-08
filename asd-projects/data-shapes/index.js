@@ -86,7 +86,7 @@ $(document).ready(function () {
     setBackgroundWithMixed(data, repeat);
     animationDetails.displayType = 3;
     resetDisplay();
-   // currentIndex = 
+    currentIndex = Math.floor(Math.random()*dataShapes.length);
   }
 
   /////////////////////////////////////////////////
