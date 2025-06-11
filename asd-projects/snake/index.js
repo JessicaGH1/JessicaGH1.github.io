@@ -113,6 +113,20 @@ function moveSnake() {
   column/row properties. 
   
   */
+  for (var i = 1; i < snake.body.length; i++) {
+    var snakeSquare = snake.body[i];
+
+    var nextSnakeSquare = snakeSquare - 1;
+    var nextRow = nextSnakeSquare.row;
+    var nextColumn = nextSnakeSquare.column;
+    var nextDirection = nextSnakeSquare.direction;
+
+    snakeSquare.direction = nextDirection;
+    snakeSquare.row = nextRow;
+    snakeSquare.column = nextColumn;
+    repositionSquare(snakeSquare);
+
+  }
 
   //Before moving the head, check for a new direction from the keyboard input
   checkForNewDirection();
@@ -125,22 +139,22 @@ function moveSnake() {
   */
   
   if (snake.head.direction === "left") {
-    snake.head.column = snake.head.column - 1;
+    snake.head.column = snake.head.column - 1; // when it moves left, one is subtracted
   }
   repositionSquare(snake.head);
 
   if (snake.head.direction === "right") {
-    snake.head.column = snake.head.column + 1;
+    snake.head.column = snake.head.column + 1; // when it moves right, one is added
   }
   repositionSquare(snake.head);
 
   if (snake.head.direction === "up") {
-    snake.head.row = snake.head.row - 1;
+    snake.head.row = snake.head.row - 1; // when it moves up, one is subtracted
   }
   repositionSquare(snake.head);
 
   if (snake.head.direction === "down") {
-    snake.head.row = snake.head.row + 1;
+    snake.head.row = snake.head.row + 1; // when it moves down, one is added
   }
   repositionSquare(snake.head);
 }
@@ -209,16 +223,16 @@ function handleAppleCollision() {
  
   // code to determine the row and column of the snakeSquare to add to the snake
   if (snake.tail.direction === "left"){
-    column = snake.tail.column - 1;
-  } 
-  if (snake.tail.direction === "right"){
     column = snake.tail.column + 1;
   } 
+  if (snake.tail.direction === "right"){
+    column = snake.tail.column - 1;
+  } 
   if (snake.tail.direction === "up"){
-    row = snake.tail.row - 1;
+    row = snake.tail.row + 1;
   } 
   if (snake.tail.direction === "down"){
-    row = snake.tail.row + 1;
+    row = snake.tail.row - 1;
   } 
   
   makeSnakeSquare(row, column);
