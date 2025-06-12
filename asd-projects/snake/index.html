@@ -8,6 +8,8 @@
     <script src="jquery.min.js"></script>
   </head>
   <body>
+    <button>Light Mode</button>
+    <h1 id="name">SNAKE GAME</h1>
     <div id="board"> </div>
     <h1 id="score">Score: 0</h1>
     <h1 id="highScore">High Score: 0</h1>
@@ -15,5 +17,29 @@
   
   <!-- Link index.js here -->
   <script src="index.js"></script>
+
+  <script>
+    $("button")
+      .on("click", changeThemes)
+    //  .text("Dark Mode")
+      .css("background-color","black")
+      .css("height",50)
+      .css("width",50)
+      .css("color","white")
+      .css("position", "relative")
+      .css("left", 500);
+
+      /*
+    function changeThemes(){
+      if ($("button").text === "Light Mode"){
+        $("score").css("color", "white");
+        $("button").text("Dark Mode");
+      } else {
+        $("score").css("color", "black");
+        $("button").text("Light Mode");
+      }
+    }
+      */
+  </script>
 
 </html>

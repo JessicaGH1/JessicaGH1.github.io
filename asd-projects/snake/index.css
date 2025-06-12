@@ -1,18 +1,40 @@
 
 body {
-  background-color: darkgreen;
+  background-color: rgb(0, 63, 92);
 }
 
 #board {
+  position: relative;
+  left: 250px;
+  bottom: -100px;
   width: 440px;
   height: 440px;
   border: 1px solid white;
   background-color: black;
 }
 
-#score, #highScore {
+#name {
+  position: relative;
+  left: 355px;
+  bottom: -100px;
+}
+
+#name, #score, #highScore {
   color: white;
 }
+
+#score{
+  position: relative;
+  left: 50px;
+  bottom: 233px;
+}
+
+#highScore{
+  position: relative;
+  left: 775px;
+  bottom: 300px;
+}
+
 
 .snake, .apple {
   display: block;
