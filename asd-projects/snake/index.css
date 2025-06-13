@@ -1,38 +1,44 @@
 
 body {
-  background-color: rgb(0, 63, 92);
+  background-color: #B3C8CF;
+
 }
 
 #board {
-  position: relative;
+  display: grid;
+  position: fixed;
   left: 250px;
-  bottom: -100px;
+  bottom: 200px;
   width: 440px;
   height: 440px;
   border: 1px solid white;
-  background-color: black;
+  background-color: #E5DDC5;
 }
 
 #name {
-  position: relative;
+  position: fixed;
   left: 355px;
-  bottom: -100px;
+  bottom: 650px;
+  color: #E5DDC5;
+  background: transparent;
 }
 
-#name, #score, #highScore {
-  color: white;
+#score, #highScore {
+  color: #F1EEDC;
+  background: transparent;
+
 }
 
 #score{
-  position: relative;
-  left: 50px;
-  bottom: 233px;
+  position: fixed;
+  left: 60px;
+  bottom: 500px;
 }
 
 #highScore{
-  position: relative;
-  left: 775px;
-  bottom: 300px;
+  position: fixed;
+  left: 725px;
+  bottom: 500px;
 }
 
 

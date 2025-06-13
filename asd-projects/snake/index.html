@@ -8,7 +8,19 @@
     <script src="jquery.min.js"></script>
   </head>
   <body>
-    <button>Light Mode</button>
+    <button id="themes">Dark Mode</button>
+
+    <select id="snakeSkin">
+      <option value="Select">Select Skin</option>
+      <option value="red">Red</option>
+      <option value="orange">Orange</option>
+      <option value="yellow">Yellow</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="purple">Purple</option>
+      <option value="pink">Pink</option>
+    </select>
+
     <h1 id="name">SNAKE GAME</h1>
     <div id="board"> </div>
     <h1 id="score">Score: 0</h1>
@@ -19,27 +31,87 @@
   <script src="index.js"></script>
 
   <script>
-    $("button")
+    $("#themes")
       .on("click", changeThemes)
-    //  .text("Dark Mode")
-      .css("background-color","black")
+      .css("background-color","#E5DDC5")
       .css("height",50)
       .css("width",50)
-      .css("color","white")
-      .css("position", "relative")
-      .css("left", 500);
+      .css("color","#F1EEDC")
+      .css("position", "fixed")
+      .css("left", 250)
+      .css("bottom", 100);
 
-      /*
+    $("#snakeSkin")
+      .on("change", changeSnake)
+      .css("background-color","#E5DDC5")
+      .css("height",50)
+      .css("width",100)
+      .css("color","#F1EEDC")
+      .css("position", "fixed")
+      .css("left", 305)
+      .css("bottom", 100);
+
+  
     function changeThemes(){
-      if ($("button").text === "Light Mode"){
-        $("score").css("color", "white");
-        $("button").text("Dark Mode");
+      if ($("#themes").text() === "Dark Mode"){
+        $("#board").css("background-color", "#1B1A55");
+        $("body").css("background-color", "#070F2B");
+        $("#name").css("color", "#535C91");
+        $("#score").css("color", "#9290C3");
+        $("#highScore").css("color", "#9290C3");
+        $("#themes")
+          .text("Light Mode")
+          .css("background-color", "#535C91")
+          .css("color", "#9290C3");
+        $("#snakeSkin")
+          .css("background-color", "#535C91")
+          .css("color", "#9290C3");
+    //    $(".snake").css("background-color", "blue");
       } else {
-        $("score").css("color", "black");
-        $("button").text("Light Mode");
+        $("#board").css("background-color", "#E5DDC5");
+        $("body").css("background-color", "#B3C8CF");
+        $("#name").css("color", "#E5DDC5");
+        $("#score").css("color", "#F1EEDC");
+        $("#highScore").css("color", "#F1EEDC");
+        $("#themes")
+          .text("Dark Mode")
+          .css("background-color", "#E5DDC5")
+          .css("color", "#F1EEDC");
+        $("#snakeSkin")
+          .css("background-color", "#E5DDC5")
+          .css("color", "#F1EEDC");
       }
     }
-      */
+      
+   function changeSnake(){
+    var skin = snakeSkin.value;
+    if (skin === "red"){
+      $(".snake").css("color", "red");
+      $(".snake").css("background-color", "red");
+      $("snake").css("background-color", "red");
+      $("snake").css("color", "red");
+    } else if (skin === "orange"){
+      $("#snake-head").css("background-color", "orange");
+      $(".snake").css("background-color", "orange");
+    } else if (skin === "yellow"){
+      $("#snake-head").css("background-color", "orange");
+      $(".snake").css("background-color", "yellow");
+    } else if (skin === "green"){
+      $("#snake-head").css("background-color", "orange");
+      $(".snake").css("background-color", "green");
+    } else if (skin === "blue"){
+      $("#snake-head").css("background-color", "orange");
+      $(".snake").css("background-color", "blue");
+    } else if (skin === "purple"){
+      $("#snake-head").css("background-color", "orange");
+      $(".snake").css("background-color", "purple");
+    } else if (skin === "pink") {
+      $("#snake-head").css("background-color", "orange");
+      $(".snake").css("background-color", "pink");
+    }
+   }
+
+
   </script>
 
 </html>
