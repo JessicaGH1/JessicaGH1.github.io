@@ -369,7 +369,7 @@ function getRandomAvailablePosition() {
   while (!spaceIsAvailable) {
     randomPosition.column = Math.floor(Math.random() * COLUMNS);
     randomPosition.row = Math.floor(Math.random() * ROWS);
-    spaceIsAvailable = true;
+  //  spaceIsAvailable = true;
 
     /*
     TODO 13: After generating the random position determine if that position is
@@ -379,7 +379,9 @@ function getRandomAvailablePosition() {
    for (var i = snake.body.length-1; i >= 0; i--){
     if (randomPosition.row === snake.body[i].row && randomPosition.column === snake.body[i].column){
       spaceIsAvailable = false;
-    } 
+    } else {
+      spaceIsAvailable = true;
+    }
    }
 
   return randomPosition;
