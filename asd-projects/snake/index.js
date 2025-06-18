@@ -286,6 +286,8 @@ function makeApple() {
   // TODO 4b-1: Fill in the makeApple() code block
   // make the apple jQuery Object and append it to the board
   apple.element = $("<div>").addClass("apple").appendTo(board);
+  apple.element.css("background-color", fruitSelect.value);
+
 
   // get a random available row/column on the board
   var randomPosition = getRandomAvailablePosition();
@@ -309,6 +311,8 @@ function makeSnakeSquare(row, column) {
 
   // make the snakeSquare.element Object and append it to the board
   snakeSquare.element = $("<div>").addClass("snake").appendTo(board);
+  snakeSquare.element.css("background-color", snakeSkin.value);
+
 
   // initialize the row and column properties on the snakeSquare Object
   snakeSquare.row = row;

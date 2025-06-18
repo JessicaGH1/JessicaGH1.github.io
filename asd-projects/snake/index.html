@@ -15,6 +15,29 @@
     <div id="board"> </div>
     <h1 id="score">Score: 0</h1>
     <h1 id="highScore">High Score: 0</h1>
+
+    <select id="snakeSkin">
+      <option value="Select">Select Skin</option>
+      <option value="red">Red</option>
+      <option value="orange">Orange</option>
+      <option value="yellow">Yellow</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="purple">Purple</option>
+      <option value="pink">Pink</option>
+    </select>
+
+    <select id="fruitSelect">
+      <option value="Select">Select Skin</option>
+      <option value="apple">Apple</option>
+      <option value="orange">Orange</option>
+      <option value="lemon">Lemon</option>
+      <option value="grape">Grape</option>
+      <option value="blueberry">Blueberry</option>
+      <option value="raspberry">Raspberry</option>
+      <option value="pomegranate">Pomegranate</option>
+    </select>
+
   </body>
   
   <!-- Link index.js here -->
@@ -31,8 +54,26 @@
       .css("left", 250)
       .css("bottom", 100);
 
-     
-  
+    $("#snakeSkin")
+      .on("change", changeSnake)
+      .css("background-color","#E5DDC5")
+      .css("height",50)
+      .css("width",100)
+      .css("color","#F1EEDC")
+      .css("position", "fixed")
+      .css("left", 305)
+      .css("bottom", 100);
+
+    $("#fruitSelect")
+      .on("change", changeFruit)
+      .css("background-color","#E5DDC5")
+      .css("height",50)
+      .css("width",100)
+      .css("color","#F1EEDC")
+      .css("position", "fixed")
+      .css("left", 410)
+      .css("bottom", 100);
+
     function changeThemes(){
       if ($("#themes").text() === "Dark Mode"){
         $("#board").css("background-color", "#1B1A55");
@@ -45,6 +86,9 @@
           .css("background-color", "#535C91")
           .css("color", "#9290C3");
         $("#snakeSkin")
+          .css("background-color", "#535C91")
+          .css("color", "#9290C3");
+        $("#fruitSelect")
           .css("background-color", "#535C91")
           .css("color", "#9290C3");
       } else {
@@ -60,8 +104,52 @@
         $("#snakeSkin")
           .css("background-color", "#E5DDC5")
           .css("color", "#F1EEDC");
+        $("#fruitSelect")
+          .css("background-color", "#E5DDC5")
+          .css("color", "#F1EEDC");
       }
     }
+
+    function changeSnake(){
+      var skin = snakeSkin.value;
+      if (skin === "red"){
+        $(".snake").css("background-color", "red");
+      } else if (skin === "orange"){
+        $(".snake").css("background-color", "orange");
+      } else if (skin === "yellow"){
+        $(".snake").css("background-color", "yellow");
+     } else if (skin === "green"){
+        $(".snake").css("background-color", "green");
+     } else if (skin === "blue"){
+        $(".snake").css("background-color", "blue");
+     } else if (skin === "purple"){
+        $(".snake").css("background-color", "purple");
+     } else if (skin === "pink") {
+       $(".snake").css("background-color", "pink");
+     }
+   }
+
+   function changeFruit(){
+      var fruit = fruitSelect.value;
+      if (fruit === "apple"){
+        $(".apple").css("background-color", "red");
+      } else if (fruit === "orange"){
+        $(".apple").css("background-color", "orange");
+      } else if (fruit === "lemon"){
+        $(".apple").css("background-color", "yellow");
+     } else if (fruit === "grape"){
+        $(".apple").css("background-color", "green");
+     } else if (fruit === "blueberry"){
+        $(".apple").css("background-color", "blue");
+     } else if (fruit === "raspberry"){
+        $(".apple").css("background-color", "purple");
+     } else if (fruit === "pomegranate") {
+       $(".apple").css("background-color", "pink");
+     }
+   }
+
+
+   
       
    
   </script>

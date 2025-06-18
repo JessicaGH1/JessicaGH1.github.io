@@ -16,6 +16,14 @@ function runProgram(){
     positionY: 0,
     speedY: 0
   }
+
+  var walker2 = {
+    positionX2: 0,
+    speedX2: 0,
+    positionY2: 0,
+    speedY2: 0
+  }
+
   // Game Item Objects
   var KEY = {
     LEFT: 37,
@@ -24,6 +32,13 @@ function runProgram(){
     DOWN: 40
   }
 
+  var KEY2 = {
+    A: 65,
+    W: 87,
+    D: 68,
+    S: 83
+  }
+  
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
@@ -39,34 +54,69 @@ function runProgram(){
   */
   function newFrame() {
     repositionGameItem();
-    wallCollision();
+
+    repositionGameItem2();
+   // wallCollision();
     redrawGameItem();
+
+    redrawGameItem2();
   }
-  
+
+  /*
+  function newFrame2() {
+    repositionGameItem2();
+    wallCollision2();
+    redrawGameItem2();
+  }
+  */
+
   /* 
   Called in response to events.
   */
+
+  
   function handleKeyDown(event) {
-   // console.log("key pressed: " + event.keyCode); TODO 1
    if (event.which === KEY.LEFT){
-  //  console.log("left pressed");
     walker.speedX = -5;
    } else if (event.which === KEY.UP){
-  //  console.log("up pressed");
     walker.speedY = -5;
    } else if (event.which === KEY.RIGHT){
-  //  console.log("right pressed");
     walker.speedX = 5;
    } else if (event.which === KEY.DOWN){
-  //  console.log("down pressed");
     walker.speedY = 5;
+   } else if (event.which === KEY2.A){
+    walker2.speedX2 = -5;
+   } else if (event.which === KEY2.W){
+    walker2.speedY2 = -5;
+   } else if (event.which === KEY2.D){
+    walker2.speedX2 = 5;
+   } else if (event.which === KEY2.S){
+    walker2.speedY2 = 5;
    }
   }
+  
 
+  /*
+  function handleKeyDown(event) {
+   if (event.which === KEY2.A){
+    walker2.speedX2 = -5;
+   } else if (event.which === KEY2.W){
+    walker2.speedY2 = -5;
+   } else if (event.which === KEY2.D){
+    walker2.speedX2 = 5;
+   } else if (event.which === KEY2.S){
+    walker2.speedY2 = 5;
+   }
+  }
+*/
+  
   function handleKeyUp(event){
     walker.speedX = 0;
     walker.speedY = 0;
+    walker2.speedX2 = 0;
+    walker2.speedY2 = 0;
   }
+
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -79,16 +129,27 @@ function runProgram(){
     // turn off event handlers
     $(document).off();
   }
-  
+
   function repositionGameItem(){
     walker.positionX += walker.speedX; // update the position of the box along the x-axis
     walker.positionY += walker.speedY; // update the position of the box along the x-axis
-
   }
+
+  function repositionGameItem2(){
+    walker2.positionX2 += walker2.speedX2; // update the position of the box along the x-axis
+    walker2.positionY2 += walker2.speedY2; // update the position of the box along the x-axis
+  }
+
 
   function redrawGameItem(){
     $("#walker").css("left", walker.positionX); // draw the box in the new location, positionX pixels away from the "left"
     $("#walker").css("top", walker.positionY); // draw the box in the new location, positionX pixels away from the "left"
+  }
+
+
+  function redrawGameItem2(){
+    $("#walker2").css("left", walker2.positionX2); // draw the second box in the new location, positionX pixels away from the "left"
+    $("#walker2").css("bottom", walker2.positionY2); // draw the second box in the new location, positionX pixels away from the "left"
   }
 
   function wallCollision(){
@@ -102,5 +163,20 @@ function runProgram(){
       walker.positionY -= walker.speedY // top wall
     }
   }
+/*
+  function wallCollision2(){
+    if (walker2.positionX2 > $("#board").width()-50){ // right wall
+      walker2.positionX2 -= walker2.speedX2
+    } else if (walker2.positionY2 > $("#board").height()-50){ // bottom
+      walker2.positionY2 -= walker2.speedY2
+    } else if (walker2.positionX2 < 0){ // left wall
+      walker2.positionX2 -= walker2.speedX2
+    } else if (walker2.positionY2 < 0){
+      walker2.positionY2 -= walker2.speedY2 // top wall
+    }
+  }
+*/
+  
+  
   
 }
