@@ -18,9 +18,9 @@ function runProgram(){
   }
 
   var walker2 = {
-    positionX2: 0,
+    positionX2: 550,
     speedX2: 0,
-    positionY2: 0,
+    positionY2: 550,
     speedY2: 0
   }
 
@@ -52,23 +52,33 @@ function runProgram(){
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
+
+  var randomColor = "#000000".replace(/0/g, function () {
+  return (~~(Math.random() * 16)).toString(16); 
+  });
+
+  $('#walker').on('click', changeColor);
+  $('#walker2').on('click', changeColorAgain);
+
+  function changeColor(){
+    $('#walker').css('background-color', randomColor);
+  }
+
+  function changeColorAgain(){
+    $('#walker2').css('background-color', randomColor);
+  }
+
   function newFrame() {
     repositionGameItem();
-
     repositionGameItem2();
-   // wallCollision();
+    wallCollision();
+    wallCollision2()
+    playersCollide();
     redrawGameItem();
-
     redrawGameItem2();
   }
 
-  /*
-  function newFrame2() {
-    repositionGameItem2();
-    wallCollision2();
-    redrawGameItem2();
-  }
-  */
+  
 
   /* 
   Called in response to events.
@@ -130,11 +140,13 @@ function runProgram(){
     $(document).off();
   }
 
+  
   function repositionGameItem(){
     walker.positionX += walker.speedX; // update the position of the box along the x-axis
     walker.positionY += walker.speedY; // update the position of the box along the x-axis
   }
 
+  
   function repositionGameItem2(){
     walker2.positionX2 += walker2.speedX2; // update the position of the box along the x-axis
     walker2.positionY2 += walker2.speedY2; // update the position of the box along the x-axis
@@ -149,7 +161,7 @@ function runProgram(){
 
   function redrawGameItem2(){
     $("#walker2").css("left", walker2.positionX2); // draw the second box in the new location, positionX pixels away from the "left"
-    $("#walker2").css("bottom", walker2.positionY2); // draw the second box in the new location, positionX pixels away from the "left"
+    $("#walker2").css("top", walker2.positionY2); // draw the second box in the new location, positionX pixels away from the "left"
   }
 
   function wallCollision(){
@@ -163,7 +175,7 @@ function runProgram(){
       walker.positionY -= walker.speedY // top wall
     }
   }
-/*
+
   function wallCollision2(){
     if (walker2.positionX2 > $("#board").width()-50){ // right wall
       walker2.positionX2 -= walker2.speedX2
@@ -175,8 +187,16 @@ function runProgram(){
       walker2.positionY2 -= walker2.speedY2 // top wall
     }
   }
-*/
-  
+
+  function playersCollide(){
+    if (walker.positionX === walker2.positionX2 && walker.positionY === walker2.positionY2){
+      $('#walker').css('background-color', 'darkred');
+      walker.positionX = 0;
+      walker.positionY = 0;
+      walker2.positionX2 = 550;
+      walker2.positionX2 = 550;
+    }
+  }
   
   
 }
