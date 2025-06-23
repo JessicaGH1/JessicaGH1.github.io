@@ -4,6 +4,7 @@ $(document).ready(function () {
   render($("#display"), image);
   $("#apply").on("click", applyAndRender);
   $("#reset").on("click", resetAndRender);
+  applyFilter(reddify);
 });
 
 /////////////////////////////////////////////////////////
@@ -32,16 +33,45 @@ function applyAndRender() {
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2, 3 & 5: Create the applyFilter function here
-
+function applyFilter(filterFunction){
+  for (var row = 0; row < image.length; row++){
+    for (var column = 0; column < image[row].length; column++){
+      var pixel = image[row][column]; // pixel: rgb(150, 150, 150)
+      var pixelArray = rgbStringToArray(pixel); // pixelArray: 150,150,150
+      // This is where I’ll modify the color values later
+      // pixelArray[RED] = 200;
+      filterFunction(pixelArray); 
+      var updatedPixel = rgbArrayToString(pixelArray); // Updated pixel before: rgb(150,150,150)
+      image[row][column] = updatedPixel; // Image now: rgb(150,150,150)
+    }
+  }
+}
 
 // TODO 9 Create the applyFilterNoBackground function
 
 
 // TODO 6: Create the keepInBounds function
-
+function keepInBounds(num){
+  return num < 0 ? 0 : num > 255 ? 255 : num;
+}
+// Uncomment to test
+/*
+console.log(keepInBounds(-20)); // should print 0
+console.log(keepInBounds(300)); // should print 255
+console.log(keepInBounds(125)); // should print 125
+*/
 
 // TODO 4: Create reddify filter function
+function reddify(array){
+  array[RED] = 200;
+}
 
+//Uncomment to test reddify filter function
+/*
+var testArray = [100, 100, 100];
+reddify(testArray);
+console.log(testArray); // Should show [200, 100, 100]
+*/
 
 // TODO 7 & 8: Create more filter functions
 
