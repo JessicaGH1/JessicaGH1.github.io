@@ -4,7 +4,8 @@ $(document).ready(function () {
   render($("#display"), image);
   $("#apply").on("click", applyAndRender);
   $("#reset").on("click", resetAndRender);
-  applyFilter(reddify);
+ // applyFilter(reddify);
+  applyFilter(decreaseBlue);
 });
 
 /////////////////////////////////////////////////////////
@@ -74,6 +75,16 @@ console.log(testArray); // Should show [200, 100, 100]
 */
 
 // TODO 7 & 8: Create more filter functions
+function decreaseBlue(arr){
+  //testing: console.log("Blue before: " + arr[BLUE]);
+  arr[BLUE] -= 50;
+  newBlue = keepInBounds(arr[BLUE]);
+  // testing: console.log("Blue after: " + newBlue); 
+}
 
+function increaseGreenByBlue(arry){
+  arry[GREEN] += arry[BLUE];
+  newGreen = keepInBounds(arr[GREEN]);
+}
 
 // CHALLENGE code goes below here
