@@ -4,8 +4,6 @@ $(document).ready(function () {
   render($("#display"), image);
   $("#apply").on("click", applyAndRender);
   $("#reset").on("click", resetAndRender);
- // applyFilter(reddify);
-  applyFilter(decreaseBlue);
 });
 
 /////////////////////////////////////////////////////////
@@ -22,9 +20,18 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-
   
+  applyFilter(reddify);
+  applyFilterNoBackground(increaseGreenByBlue);
+  applyFilter(increaseGreenByBlue);
+  applyFilterNoBackground(decreaseBlue);
+  applyFilter(decreaseBlue);
+  applyFilterNoBackground(reddify);
 
+ // applyFilter(grayscale); // testing my grayscale function
+ // applyFilter(purpleTint); // testing my purple tint function
+ //  applyFilter(vintage); // testing my vintage function
+ //  applyFilter(inversion); // testing my invert function
   // do not change the below line of code
   render($("#display"), image);
 }
@@ -49,7 +56,19 @@ function applyFilter(filterFunction){
 }
 
 // TODO 9 Create the applyFilterNoBackground function
-
+function applyFilterNoBackground(filterFunction){
+  var backgroundColor = image[0][0];
+  for (var row = 0; row < image.length; row++){
+    for (var column = 0; column < image[row].length; column++){
+      if (image[row][column] !== backgroundColor){
+        var array = rgbStringToArray(image[row][column]);
+        filterFunction(array);
+        var string = rgbArrayToString(array);
+        image[row][column] = string;  
+      } 
+    }
+  }
+}
 
 // TODO 6: Create the keepInBounds function
 function keepInBounds(num){
@@ -75,16 +94,82 @@ console.log(testArray); // Should show [200, 100, 100]
 */
 
 // TODO 7 & 8: Create more filter functions
-function decreaseBlue(arr){
+function decreaseBlue(array){
   //testing: console.log("Blue before: " + arr[BLUE]);
-  arr[BLUE] -= 50;
-  newBlue = keepInBounds(arr[BLUE]);
+  array[BLUE] -= 50;
+  newBlue = keepInBounds(array[BLUE]);
   // testing: console.log("Blue after: " + newBlue); 
+  array[BLUE] = newBlue;
 }
 
-function increaseGreenByBlue(arry){
-  arry[GREEN] += arry[BLUE];
-  newGreen = keepInBounds(arr[GREEN]);
+function increaseGreenByBlue(array){
+  array[GREEN] += array[BLUE];
+  newGreen = keepInBounds(array[GREEN]);
+  array[GREEN] = newGreen;
 }
 
+function grayscale(array){
+  var sum = array[RED] + array[GREEN] + array[BLUE];
+  var avg = sum / 3
+  array[RED] = avg;
+  array[GREEN] = avg;
+  array[BLUE] = avg;
+}
+
+function purpleTint(array){
+  array[RED] += 150;
+  array[BLUE] += 150;
+  newRed = keepInBounds(array[RED]);
+  newBlue = keepInBounds(array[BLUE]);
+  array[RED] = newRed;
+  array[BLUE] = newBlue;
+}
+
+function vintage(array){
+  array[RED] += 50;
+  array[GREEN] += 50;
+  array[BLUE] -= 200;
+  newRed = keepInBounds(array[RED]);
+  newGreen = keepInBounds(array[GREEN]);
+  newBlue = keepInBounds(array[BLUE]);
+  array[RED] = newRed;
+  array[GREEN] = newGreen;
+  array[BLUE] = newBlue;
+}
+
+function inversion(array){
+  array[RED] = 255 - array[RED];
+  array[BLUE] = 255 - array[BLUE];
+  array[GREEN] = 255 - array[GREEN];
+  newRed = keepInBounds(array[RED]);
+  newGreen = keepInBounds(array[GREEN]);
+  newBlue = keepInBounds(array[BLUE]);
+  array[RED] = newRed;
+  array[GREEN] = newGreen;
+  array[BLUE] = newBlue;
+}
+
+// try after finishing sorting
+/*
+function smudge(array){
+  for (var row = 0; row < image.length; row++){
+    for (var column = 0; column < image[row].length; column++){
+      var pixel = image[row][column]; 
+      var pixelArray = rgbStringToArray(pixel); 
+    //  console.log(pixelArray);
+      var nextPixel = image[row+1][column];
+      var nextPixelArray = rgbStringToArray(nextPixel);
+   //   console.log(nextPixelArray);
+    }
+    for (var i = 0; i <= pixelArray.length; i++){
+        console.log("Pixel array: " + pixelArray[i]);
+    //    console.log(nextPixelArray[i]);
+      }
+    //  console.log("new mix: " + pixelArray);
+
+     // var newMix = image[row][column] + image[row][column-1];
+     // image[row][column] = newMix;
+  }
+}
+*/
 // CHALLENGE code goes below here
