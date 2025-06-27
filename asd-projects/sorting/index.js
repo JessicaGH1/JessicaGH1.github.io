@@ -20,7 +20,7 @@ async function bubbleSort(array){
             if (array[j].value < array[j - 1].value){
                 swap(array, j, j - 1);
                 updateCounter(bubbleCounter);
-                await sleep
+                await sleep();
             }
         }
     }
