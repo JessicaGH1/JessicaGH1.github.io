@@ -31,11 +31,13 @@ async function bubbleSort(array){
 async function quickSort(array, left, right){
     if ((right - left) > 0){
         var index = await partition(array, left, right);
-    } else if (left < (index - 1)){
-        await quickSort(array, left, index - 1);
-    } else if (index < right){
-        await quickSort(array, index, right);
-    }
+        if (left < (index - 1)){
+            await quickSort(array, left, index - 1);
+        }
+        if (index < right){
+            await quickSort(array, index, right);
+        }
+    } 
 }
 
 
@@ -55,7 +57,7 @@ async function partition(array, left, right){
             await sleep();
         }
     }
-    return left++;
+    return left + 1;
 }
 
 // TODO 1: Implement swap
